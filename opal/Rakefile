@@ -1,0 +1,29 @@
+require 'opal'
+require 'opal/util'
+
+def uglify(file, content)
+  path = File.expand_path(File.dirname(__FILE__))
+  filepath = File.join(path, "#{file}.min.js")
+  File.open(filepath, 'w') do |f|
+    f.write Opal::Util.uglify(content)
+  end
+end
+
+task :default => :compile_opal_plugin_setup
+
+desc 'Compile opal-plugin-setup.coffee'
+task :compile_opal_plugin_setup do
+  uglify('opal-plugin-setup', `coffee -p opal-plugin-setup.coffee`)
+end
+
+desc 'Build a fresh opal.js'
+task :build_opal do
+  env = Opal::Environment.new
+  files = [ 'opal', 'opal-parser' ]
+  files.each do |file|
+    uglify(file, env[file].to_s)
+  end
+end
+
+desc 'Build all'
+task :build_all => [ :build_opal, :compile_opal_plugin_setup ]
