@@ -4,6 +4,16 @@ Provides for runnable code blocks in your reveal.js slide show. Also allows
 for irb-like behavior, as well as the preservation of state across slides,
 so that you can define a class in one slide and use it in a subsequent slide.
 
+## Screenshots
+
+### Running Ruby
+
+![Runnable Code](https://raw.githubusercontent.com/jgn/reveal.js-opal-plugin/master/images/1.png)
+
+### Irb-like display of line-by-line evaluation
+
+![irb](https://raw.githubusercontent.com/jgn/reveal.js-opal-plugin/master/images/2.png)
+
 ## Installation
 
 1.  Move the `opal/` directory into your `reveal.js` `plugin/` directory.
