@@ -32,27 +32,31 @@ so that you can define a class in one slide and use it in a subsequent slide.
 
     Example:
 
-        <section>
-          <h2>Runnable Code</h2>
-          <pre><code ruby data-trim contenteditable opal class="ruby">
-        (1..10).each do |i|
-          puts i
-        end
-          </code></pre>
-        </section>
+    ```
+    <section>
+      <h2>Runnable Code</h2>
+      <pre><code ruby data-trim contenteditable opal class="ruby">
+    (1..10).each do |i|
+      puts i
+    end
+      </code></pre>
+    </section>
+    ```
 
 4.  For irb-like behavior, where each line is evaluated separately, and
     the evaluation of the line is shown after a `# =>` comment, use the
     `opal-irb` tag. Example:
 
-        <section>
-          <h2>irb-like behavior</h2>
-          <pre><code data-trim contenteditable opal-irb class="ruby">
-        [1, 2, 3].map { |e| e * 2 }
-        0xff
-        1_000_000
-          </code></pre>
-        </section>
+    ```
+    <section>
+      <h2>irb-like behavior</h2>
+      <pre><code data-trim contenteditable opal-irb class="ruby">
+    [1, 2, 3].map { |e| e * 2 }
+    0xff
+    1_000_000
+      </code></pre>
+    </section>
+    ```
 
 5.  The "state" of the workspace is preserved across slides. So if you
     define a class or instance variable in one slide, such classes and
@@ -60,6 +64,21 @@ so that you can define a class in one slide and use it in a subsequent slide.
     state has been altered, you will see "(dirty)" after the `new workspace`
     button. To clear out the state (i.e., restart Opal), click `new workspace`.
 
-6.  For an example of all of the above, you can use the `example-2.6.2.html`
-    slide show supplied here. Don't forget to put the `opal` directory into the
-    `reveal.js` `plugin` directory.
+### For an example of all of the above, you can use `example-2.6.2/opal-example.html`:
+
+1.  Clone a copy of reveal.js into a director for your slide show
+
+        git clone git@github.com:hakimel/reveal.js.git ../my-slides
+
+2.  Copy `example-2.6.2/opal-example.html` from this project into `my-slides`:
+
+        cp example-2.6.2/opal-example.html ../my-slides
+
+3.  Copy the contents of the `opal/` directory into your slide show's `plugin`
+    directory:
+
+        cp -R opal ../my-slides/plugin
+
+4.  Now open the example slideshow . . .
+
+        open ../my-slides/opal-example.html
